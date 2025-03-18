@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/HelloWorldTest.dir/hello_test.cpp.o -o HelloWorldTest 

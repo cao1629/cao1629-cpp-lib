@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/HelloWorld.dir/hello.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/hello.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/hello.cpp",
+  "output": "CMakeFiles/HelloWorld.dir/hello.cpp.o"
+},
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/TimeUtilTest.dir/time_util_test.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/time_util_test.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/time_util_test.cpp",
+  "output": "CMakeFiles/TimeUtilTest.dir/time_util_test.cpp.o"
+},
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/a1.dir/a1.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a1.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/a1.cpp",
+  "output": "CMakeFiles/a1.dir/a1.cpp.o"
+},
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/a2.dir/a2.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a2.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/a2.cpp",
+  "output": "CMakeFiles/a2.dir/a2.cpp.o"
+},
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/point.dir/point.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/point.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/point.cpp",
+  "output": "CMakeFiles/point.dir/point.cpp.o"
+},
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build/common",
+  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/TimeUtil.dir/time_util.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/common/time_util.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/common/time_util.cpp",
+  "output": "common/CMakeFiles/TimeUtil.dir/time_util.cpp.o"
+}
+]
