@@ -2,8 +2,7 @@
 #include <string>
 #include <memory>
 
-// The same vector of strings can be shared among multiple StrBlob objects.
-// That is why we use shared_ptr.
+// StrBlob is a bunch of strings that can be shared among multiple StrBlob objects by using shared_ptr.
 class StrBlob {
 public:
 
@@ -16,7 +15,6 @@ public:
   size_type Size() const { return data_->size(); }
 
   bool Empty() const { return data_->empty(); }
-
 
   void PushBack(const std::string &t) { data_->push_back(t); }
 

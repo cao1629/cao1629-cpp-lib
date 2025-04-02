@@ -1,9 +1,9 @@
 #include <iostream>
 #include <memory>
+#include <vector>
 
 class Point {
 public:
-
 
   // Constructor
   Point(int x, int y) : x_(x), y_(y) {
@@ -48,11 +48,9 @@ Point Scale(Point p, int factor) {
   return Point(p.x() * factor, p.y() * factor);
 }
 
-
 int main(int argc, char const *argv[]) {
-  std::shared_ptr<Point> p1 = std::make_shared<Point>(1, 2);
-  std::shared_ptr<Point> p2 = std::make_shared<Point>(3, 4);
-  p2 = p1;
+  std::vector<Point> points;
+  points.emplace_back(1, 2);
   return 0;
 }
 

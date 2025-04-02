@@ -64,7 +64,11 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "list": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "format": "cpp",
+        "span": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++-13",
     

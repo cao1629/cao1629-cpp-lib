@@ -1,40 +1,28 @@
-#include <thread>
+#include <future>
 #include <iostream>
-#include <list>
+#include <thread>
+#include <chrono>
 
-
-class background_task {
-public:
-  void operator()() const {
-    for (int i = 0; i < 10; i++) {
-      std::cout << "background task: " << i << std::endl;
-    }
-  }
-};
-
-struct func {
-  int &i;
-  func(int &i_) : i(i_) {}
-  void operator()() {
-    for (int j = 0; j < 1000000; j++) {
-      std::cout << "func: " << i << std::endl;
-    }
-  }
-};
-
-void oops() {
-  int some_local_state = 0;
-  func my_func(some_local_state);
-  std::thread my_thread(my_func);
-  my_thread.detach();
+void calculate_square(std::promise<int> *p, int x) {
+  int result = x * x;
+  std::this_thread::sleep_for(std::chrono::seconds(2));
+  p->set_value(result);
 }
 
-
-std::list<int> some_list;
-
-
 int main(int argc, char const *argv[]) {
+  // std::promise is a producer who can only produce once
+  std::promise<int> p;
 
+  // std::future is a consumer who can only consume once
+  std::future<int> f = p.get_future();
+
+  // Launch a thread to calculate the square of 9
+  std::thread task(calculate_square, &p, 9);
+
+  int result = f.get();
+  std::cout << "The square of 9 is " << result << std::endl;
+
+  task.join();
 
   return 0;
 }

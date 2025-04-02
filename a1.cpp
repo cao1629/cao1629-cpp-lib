@@ -1,8 +1,9 @@
-#include <memory>
-#include <string>
+
+#include <cstring>
+#include <iostream>
+#include <fstream>
+#include <cstdio>
 
 int main(int argc, char const *argv[]) {
-  std::shared_ptr<std::string> p1;
   
-  return 0;
 }

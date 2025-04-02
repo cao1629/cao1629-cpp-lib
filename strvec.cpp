@@ -2,7 +2,7 @@
 #include <string>
 #include <memory>
 
-
+// StrVec is a simplified version of the class std::vector<std::string>
 class StrVec {
 public:
   StrVec() : elements_(nullptr), first_free_(nullptr), cap_(nullptr) { }

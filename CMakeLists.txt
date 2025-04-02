@@ -19,13 +19,19 @@ add_library(HelloWorld hello.cpp)
 
 add_subdirectory(common)
 
-add_executable(TimeUtilTest time_util_test.cpp)
-target_link_libraries(TimeUtilTest TimeUtil)
+# add_executable(TimeUtilTest time_util_test.cpp)
+# target_link_libraries(TimeUtilTest TimeUtil)
 
 add_executable(a1 a1.cpp)
 
 add_executable(a2 a2.cpp)
 
+add_executable(a3 a3.cpp)
+
 target_link_libraries(a2)
 
 add_executable(point point.cpp)
+
+add_executable(FutureTest future_test.cpp)
+
+add_executable(employee employee.cpp)
