@@ -35,3 +35,12 @@ add_executable(point point.cpp)
 add_executable(FutureTest future_test.cpp)
 
 add_executable(employee employee.cpp)
+
+add_executable(worker worker.cpp)
+
+find_package(fmt)
+
+include_directories(
+    ${CMAKE_SOURCE_DIR})
+
+target_link_libraries(a2 fmt::fmt)

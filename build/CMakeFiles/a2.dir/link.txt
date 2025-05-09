@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/a2.dir/a2.cpp.o -o a2 
+/usr/bin/g++ -g CMakeFiles/a2.dir/a2.cpp.o -o a2  -Wl,-rpath,/home/caoheng/anaconda3/lib /home/caoheng/anaconda3/lib/libfmt.so.9.1.0 

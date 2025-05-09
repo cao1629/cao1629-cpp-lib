@@ -1,45 +1,51 @@
 [
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/HelloWorld.dir/hello.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/hello.cpp",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/HelloWorld.dir/hello.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/hello.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/hello.cpp",
   "output": "CMakeFiles/HelloWorld.dir/hello.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/a1.dir/a1.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a1.cpp",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/a1.dir/a1.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a1.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/a1.cpp",
   "output": "CMakeFiles/a1.dir/a1.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/a2.dir/a2.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a2.cpp",
+  "command": "/usr/bin/g++ -DFMT_SHARED -I/home/caoheng/projects/cao1629-cpp-lib -isystem /home/caoheng/anaconda3/include -g -std=gnu++17 -o CMakeFiles/a2.dir/a2.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a2.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/a2.cpp",
   "output": "CMakeFiles/a2.dir/a2.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/a3.dir/a3.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a3.cpp",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/a3.dir/a3.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/a3.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/a3.cpp",
   "output": "CMakeFiles/a3.dir/a3.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/point.dir/point.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/point.cpp",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/point.dir/point.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/point.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/point.cpp",
   "output": "CMakeFiles/point.dir/point.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/FutureTest.dir/future_test.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/future_test.cpp",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/FutureTest.dir/future_test.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/future_test.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/future_test.cpp",
   "output": "CMakeFiles/FutureTest.dir/future_test.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
-  "command": "/usr/bin/g++   -g -std=gnu++17 -o CMakeFiles/employee.dir/employee.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/employee.cpp",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/employee.dir/employee.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/employee.cpp",
   "file": "/home/caoheng/projects/cao1629-cpp-lib/employee.cpp",
   "output": "CMakeFiles/employee.dir/employee.cpp.o"
+},
+{
+  "directory": "/home/caoheng/projects/cao1629-cpp-lib/build",
+  "command": "/usr/bin/g++  -I/home/caoheng/projects/cao1629-cpp-lib -g -std=gnu++17 -o CMakeFiles/worker.dir/worker.cpp.o -c /home/caoheng/projects/cao1629-cpp-lib/worker.cpp",
+  "file": "/home/caoheng/projects/cao1629-cpp-lib/worker.cpp",
+  "output": "CMakeFiles/worker.dir/worker.cpp.o"
 },
 {
   "directory": "/home/caoheng/projects/cao1629-cpp-lib/build/common",

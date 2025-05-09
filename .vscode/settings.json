@@ -68,8 +68,13 @@
         "charconv": "cpp",
         "chrono": "cpp",
         "format": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "bitset": "cpp",
+        "codecvt": "cpp",
+        "forward_list": "cpp",
+        "unordered_set": "cpp"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/g++-13",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
     
 }

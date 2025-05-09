@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "employee"
+			"path" : "FutureTest"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"include_directories"
 		],
 		"files" : 
 		[
@@ -24,7 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 37,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 43,
 				"parent" : 0
 			}
 		]
@@ -36,6 +43,13 @@
 			[
 				{
 					"fragment" : "-g -std=gnu++17"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/home/caoheng/projects/cao1629-cpp-lib"
 				}
 			],
 			"language" : "CXX",
@@ -53,7 +67,7 @@
 			]
 		}
 	],
-	"id" : "employee::@6890427a1f51a3e7e1df",
+	"id" : "FutureTest::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -69,8 +83,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "employee",
-	"nameOnDisk" : "employee",
+	"name" : "FutureTest",
+	"nameOnDisk" : "FutureTest",
 	"paths" : 
 	{
 		"build" : ".",
@@ -91,7 +105,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "employee.cpp",
+			"path" : "future_test.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

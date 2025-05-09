@@ -241,6 +241,9 @@ cao1629-cpp-lib_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 cao1629-cpp-lib_SOURCE_DIR:STATIC=/home/caoheng/projects/cao1629-cpp-lib
 
+//The directory containing a CMake configuration file for fmt.
+fmt_DIR:PATH=/home/caoheng/anaconda3/lib/cmake/fmt
+
 
 ########################
 # INTERNAL cache entries

@@ -127,6 +127,22 @@
 			"path" : "/usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
+			"isExternal" : true,
+			"path" : "/home/caoheng/anaconda3/lib/cmake/fmt/fmt-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/caoheng/anaconda3/lib/cmake/fmt/fmt-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/caoheng/anaconda3/lib/cmake/fmt/fmt-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/home/caoheng/anaconda3/lib/cmake/fmt/fmt-targets-release.cmake"
+		},
+		{
 			"path" : "common/CMakeLists.txt"
 		}
 	],

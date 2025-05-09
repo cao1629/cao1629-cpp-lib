@@ -208,6 +208,19 @@ employee/fast:
 .PHONY : employee/fast
 
 #=============================================================================
+# Target rules for targets named worker
+
+# Build rule for target.
+worker: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 worker
+.PHONY : worker
+
+# fast build rule for target.
+worker/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/build
+.PHONY : worker/fast
+
+#=============================================================================
 # Target rules for targets named TimeUtil
 
 # Build rule for target.
@@ -388,6 +401,30 @@ point.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/point.dir/build.make CMakeFiles/point.dir/point.cpp.s
 .PHONY : point.cpp.s
 
+worker.o: worker.cpp.o
+.PHONY : worker.o
+
+# target to build an object file
+worker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/worker.cpp.o
+.PHONY : worker.cpp.o
+
+worker.i: worker.cpp.i
+.PHONY : worker.i
+
+# target to preprocess a source file
+worker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/worker.cpp.i
+.PHONY : worker.cpp.i
+
+worker.s: worker.cpp.s
+.PHONY : worker.s
+
+# target to generate assembly for a file
+worker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/worker.dir/build.make CMakeFiles/worker.dir/worker.cpp.s
+.PHONY : worker.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -404,6 +441,7 @@ help:
 	@echo "... a3"
 	@echo "... employee"
 	@echo "... point"
+	@echo "... worker"
 	@echo "... a1.o"
 	@echo "... a1.i"
 	@echo "... a1.s"
@@ -425,6 +463,9 @@ help:
 	@echo "... point.o"
 	@echo "... point.i"
 	@echo "... point.s"
+	@echo "... worker.o"
+	@echo "... worker.i"
+	@echo "... worker.s"
 .PHONY : help
 
 
