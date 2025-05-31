@@ -2,7 +2,8 @@
 #include <memory>
 #include <vector>
 #include <optional>
-
+#include <tuple>
+#include <fmt/format.h>
 
 class Point {
 public:
@@ -69,15 +70,14 @@ Point Scale(Point p, int factor) {
   return Point(p.x() * factor, p.y() * factor);
 }
 
-void Foo(std::shared_ptr<Point> p) {
-  std::cout << p->ToString() << std::endl;
+void Foo(Point &&p) {
+  std::cout << p.ToString() << std::endl;
 }
-
 
 int main(int argc, char const *argv[]) {
-  Point *p = new Point{1,2};
-  std::unique_ptr<Point> up(p);
-  up.release();
-
+  std::vector<Point> points;
+  Point p{1,2};
+  points.push_back(std::move(p));
 }
+
 

@@ -1,1 +1,1 @@
-/usr/bin/g++ -g CMakeFiles/HelloWorldTest.dir/hello_test.cpp.o -o HelloWorldTest 
+/usr/bin/g++ -g CMakeFiles/HelloWorldTest.dir/hello_test.cpp.o -o HelloWorldTest  lib/libgtest_main.a lib/libgtest.a 

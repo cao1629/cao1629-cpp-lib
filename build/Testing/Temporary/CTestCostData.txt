@@ -1,3 +1,5 @@
 HelloWorldTest 0 0
-HelloTest.BasicAssertions 2 0.000978442
+HelloTest.BasicAssertions 5 0.000754319
+MyTestFixture.Test1 1 0.00204301
+MyTestFixture.Test2 1 0.0017629
 ---

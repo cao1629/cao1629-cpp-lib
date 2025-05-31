@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/HelloWorldTest.dir/hello_test.cpp.o.d"
   "HelloWorldTest"
   "HelloWorldTest.pdb"
+  "HelloWorldTest[1]_tests.cmake"
 )
 
 # Per-language clean rules from dependency scanning.

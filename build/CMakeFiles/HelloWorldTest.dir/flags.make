@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/caoheng/projects/cao1629-cpp-lib -isystem /home/caoheng/projects/cao1629-cpp-lib/googletest/googletest/include -isystem /home/caoheng/projects/cao1629-cpp-lib/googletest/googletest
 
 CXX_FLAGS = -g -std=gnu++17
 
