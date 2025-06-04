@@ -16,16 +16,19 @@ enable_testing()
 
 add_subdirectory(googletest)
 
-add_executable(HelloWorldTest hello_test.cpp)
+add_library(HelloWorld hello.cpp)
 
-target_link_libraries(HelloWorldTest GTest::gtest_main)
+add_executable(HelloWorldTest hello_test.cpp)
+target_link_libraries(HelloWorldTest HelloWorld)
+
+include_directories(${CMAKE_SOURCE_DIR})
 
 include(GoogleTest)
 gtest_discover_tests(HelloWorldTest)
 
 # find_package(GTest REQUIRED)
 
-add_library(HelloWorld hello.cpp)
+
 
 # target_link_libraries(HelloWorldTest GTest::gtest_main HelloWorld)
 

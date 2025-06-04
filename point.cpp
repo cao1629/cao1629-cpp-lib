@@ -25,6 +25,7 @@ public:
     p.y_ = 0;
   }
 
+
   // Move assignment operator
   Point& operator=(Point &&p) noexcept {
     std::cout << "Move assignment operator called" << std::endl;
@@ -36,6 +37,7 @@ public:
     }
     return *this;
   }
+
 
   // Destructor
   ~Point() {
@@ -64,7 +66,7 @@ private:
   int y_;
 };
 
-// Copy contructor is called when passing the argument in, 
+// Copy constructor is called when passing the argument in,
 // but not called when returning because of RVO (Return Value Optimization)
 Point Scale(Point p, int factor) {
   return Point(p.x() * factor, p.y() * factor);
@@ -75,9 +77,8 @@ void Foo(Point &&p) {
 }
 
 int main(int argc, char const *argv[]) {
-  std::vector<Point> points;
-  Point p{1,2};
-  points.push_back(std::move(p));
+  Point p{1, 2};
+  std::optional<Point> q = std::move(p);
 }
 
 
