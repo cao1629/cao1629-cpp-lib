@@ -25,7 +25,6 @@ public:
     p.y_ = 0;
   }
 
-
   // Move assignment operator
   Point& operator=(Point &&p) noexcept {
     std::cout << "Move assignment operator called" << std::endl;
@@ -37,7 +36,6 @@ public:
     }
     return *this;
   }
-
 
   // Destructor
   ~Point() {
@@ -77,8 +75,11 @@ void Foo(Point &&p) {
 }
 
 int main(int argc, char const *argv[]) {
-  Point p{1, 2};
-  std::optional<Point> q = std::move(p);
+  std::optional<Point> q;
+  q.emplace(1,2);
+  if (q.has_value()) {
+    std::cout << q->ToString() << std::endl;
+  }
 }
 
 
