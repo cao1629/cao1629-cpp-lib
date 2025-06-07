@@ -14,7 +14,8 @@ enable_testing()
 # )
 # FetchContent_MakeAvailable(googletest)
 
-add_subdirectory(googletest)
+
+set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
 
 add_library(HelloWorld hello.cpp)
 

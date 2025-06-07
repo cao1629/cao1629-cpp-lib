@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/TimeUtilTest.dir/time_util_test.cpp.o -o TimeUtilTest  common/libTimeUtil.a 

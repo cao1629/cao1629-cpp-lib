@@ -1,5 +1,0 @@
-add_test([=[MyTestFixture.Test1]=]  /home/caoheng/projects/cao1629-cpp-lib/build/HelloWorldTest [==[--gtest_filter=MyTestFixture.Test1]==] --gtest_also_run_disabled_tests)
-set_tests_properties([=[MyTestFixture.Test1]=]  PROPERTIES WORKING_DIRECTORY /home/caoheng/projects/cao1629-cpp-lib/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-add_test([=[MyTestFixture.Test2]=]  /home/caoheng/projects/cao1629-cpp-lib/build/HelloWorldTest [==[--gtest_filter=MyTestFixture.Test2]==] --gtest_also_run_disabled_tests)
-set_tests_properties([=[MyTestFixture.Test2]=]  PROPERTIES WORKING_DIRECTORY /home/caoheng/projects/cao1629-cpp-lib/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set(  HelloWorldTest_TESTS MyTestFixture.Test1 MyTestFixture.Test2)

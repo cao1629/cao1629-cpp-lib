@@ -3,7 +3,7 @@
 #include <vector>
 #include <optional>
 #include <tuple>
-#include <fmt/format.h>
+
 
 class Point {
 public:
@@ -70,16 +70,12 @@ Point Scale(Point p, int factor) {
   return Point(p.x() * factor, p.y() * factor);
 }
 
-void Foo(Point &&p) {
-  std::cout << p.ToString() << std::endl;
+void f(std::shared_ptr<Point> p) {
+  std::cout << p.use_count() << std::endl;
 }
 
 int main(int argc, char const *argv[]) {
-  std::optional<Point> q;
-  q.emplace(1,2);
-  if (q.has_value()) {
-    std::cout << q->ToString() << std::endl;
-  }
+  Point p{1,2};
+  std::optional<Point> q = std::move(p);
+  return 0;
 }
-
-

@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/a3.dir/a3.cpp.o -o a3 

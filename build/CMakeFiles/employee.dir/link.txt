@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/employee.dir/employee.cpp.o -o employee 

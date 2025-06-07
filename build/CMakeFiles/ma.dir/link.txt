@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/ma.dir/1.cpp.o -o ma 

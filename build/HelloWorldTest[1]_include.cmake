@@ -1,5 +1,0 @@
-if(EXISTS "/home/caoheng/projects/cao1629-cpp-lib/build/HelloWorldTest[1]_tests.cmake")
-  include("/home/caoheng/projects/cao1629-cpp-lib/build/HelloWorldTest[1]_tests.cmake")
-else()
-  add_test(HelloWorldTest_NOT_BUILT HelloWorldTest_NOT_BUILT)
-endif()
