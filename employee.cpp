@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <queue>
@@ -60,19 +61,19 @@ int main(int argc, char const *argv[]) {
   Employee *emp4 = new Employee(4, "Bob Brown", 80000, 40);
   Employee *emp5 = new Employee(5, "Charlie Davis", 90000, 28);
 
-  std::priority_queue<Employee*> pq;
-  pq.push(emp1);
-  pq.push(emp2);
-  pq.push(emp3);
-  pq.push(emp4);
-  pq.push(emp5);
-  
-  while (!pq.empty()) {
-    Employee *emp = pq.top();
-    emp->Print();
-    delete emp;
-    pq.pop();
-  }
-  
+  std::vector<Employee *> employees;
+  employees.push_back(emp1);
+  employees.push_back(emp2);
+  employees.push_back(emp3);
+  employees.push_back(emp4);
+  employees.push_back(emp5);
+
+  auto result = std::max_element(employees.begin(), employees.end(),
+    [](const Employee *e1, const Employee *e2) {
+      return e1->salary() < e2->salary();
+    });
+
+  (*result)->Print();
+
   return 0;
 }

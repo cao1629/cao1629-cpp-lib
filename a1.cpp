@@ -1,57 +1,50 @@
+#include <algorithm>
+#include <cassert>
+#include <complex>
 #include <iostream>
-#include <mutex>
-#include <shared_mutex>
-#include <syncstream>
-#include <thread>
+#include <vector>
 
-class ThreadSafeCounter
-{
-public:
-  ThreadSafeCounter() = default;
-
-  // Multiple threads/readers can read the counter's value at the same time.
-  unsigned int get() const
-  {
-    std::shared_lock lock(mutex_);
-    return value_;
-  }
-
-  // Only one thread/writer can increment/write the counter's value.
-  void increment()
-  {
-    std::unique_lock lock(mutex_);
-    ++value_;
-  }
-
-  // Only one thread/writer can reset/write the counter's value.
-  void reset()
-  {
-    std::unique_lock lock(mutex_);
-    value_ = 0;
-  }
-
-private:
-  mutable std::shared_mutex mutex_;
-  unsigned int value_{};
-};
+struct PriceInfo { double price; };
 
 int main()
 {
-  ThreadSafeCounter counter;
+  const std::vector<int> data{1, 2, 4, 5, 5, 6};
 
-  auto increment_and_print = [&counter]()
+  for (int i = 0; i < 8; ++i)
   {
-    for (int i{}; i != 3; ++i)
-    {
-      counter.increment();
-      std::osyncstream(std::cout)
-          << std::this_thread::get_id() << ' ' << counter.get() << '\n';
-    }
-  };
+    // Search for first element x such that i ≤ x
+    auto lower = std::lower_bound(data.begin(), data.end(), i);
 
-  std::thread thread1(increment_and_print);
-  std::thread thread2(increment_and_print);
+    std::cout << i << " ≤ ";
+    lower != data.end()
+        ? std::cout << *lower << " at index " << std::distance(data.begin(), lower)
+        : std::cout << "not found";
+    std::cout << '\n';
+  }
 
-  thread1.join();
-  thread2.join();
+  std::vector<PriceInfo> prices{{100.0}, {101.5}, {102.5}, {102.5}, {107.3}};
+
+  for (const double to_find : {102.5, 110.2})
+  {
+    auto prc_info = std::lower_bound(prices.begin(), prices.end(), to_find,
+        [](const PriceInfo& info, double value)
+        {
+            return info.price < value;
+        });
+
+    prc_info != prices.end()
+        ? std::cout << prc_info->price << " at index " << prc_info - prices.begin()
+        : std::cout << to_find << " not found";
+    std::cout << '\n';
+  }
+
+  using CD = std::complex<double>;
+  std::vector<CD> nums{{1, 0}, {2, 2}, {2, 1}, {3, 0}};
+  auto cmpz = [](CD x, CD y) { return x.real() < y.real(); };
+#ifdef __cpp_lib_algorithm_default_value_type
+  auto it = std::lower_bound(nums.cbegin(), nums.cend(), {2, 0}, cmpz);
+#else
+  auto it = std::lower_bound(nums.cbegin(), nums.cend(), CD{2, 0}, cmpz);
+#endif
+  assert((*it == CD{2, 2}));
 }

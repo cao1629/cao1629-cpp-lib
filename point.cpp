@@ -1,12 +1,18 @@
+#include <algorithm>
 #include <iostream>
 #include <memory>
 #include <vector>
 #include <optional>
 #include <tuple>
+#include <list>
 
 
 class Point {
 public:
+  // Default Constructor
+  Point() {
+    std::cout << "Default Constructor called" << std::endl;
+  }
 
   // Constructor
   Point(int x, int y) : x_(x), y_(y) {
@@ -56,6 +62,10 @@ public:
     return *this;
   }
 
+  bool operator<(const Point &other) const {
+    return x_*x_ + y_*y_ < other.x_*other.x_ + other.y_*other.y_;
+  }
+
   int x() const { return x_; }
   int y() const { return y_; }
 
@@ -70,12 +80,12 @@ Point Scale(Point p, int factor) {
   return Point(p.x() * factor, p.y() * factor);
 }
 
-void f(std::shared_ptr<Point> p) {
-  std::cout << p.use_count() << std::endl;
+void Foo(Point &x) {
+  x = {1,2};
 }
 
 int main(int argc, char const *argv[]) {
-  Point p{1,2};
-  std::optional<Point> q = std::move(p);
-  return 0;
+  std::vector<Point> points{{1,2}, {2,3}, {3,4}};
+  std::vector<Point> points2{{1,3}, {2,3}, {3,4}, {2,2}};
+  std::move(points.begin(), points.end(), points2.begin());
 }

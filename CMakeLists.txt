@@ -47,7 +47,7 @@ add_executable(a2 a2.cpp)
 
 add_executable(a3 a3.cpp)
 
-target_link_libraries(a2)
+target_link_libraries(a2 fmt::fmt)
 
 add_executable(point point.cpp)
 

@@ -1,9 +1,10 @@
-#include <mutex>
-#include <optional>
 #include <iostream>
+#include <ostream>
+#include <vector>
 
-int main(int argc, char* argv[]) {
-  std::string x{"XXX"};
-  std::optional<std::string> y = std::move(x);
-  std::cout << x << std::endl;
+int main() {
+  std::vector<int> v{1,2,3,4,5};
+  std::vector<int> w;
+
+
 }
