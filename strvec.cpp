@@ -97,7 +97,6 @@ private:
     }
   }
 
-
   // void chk_n_alloc() { if (Size() == capacity()) reallocate(); }
   std::pair<std::string*, std::string*> alloc_n_copy(const std::string*, const std::string*);
 };

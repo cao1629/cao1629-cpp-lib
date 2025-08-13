@@ -1,7 +1,12 @@
+#include <gtest/gtest.h>
 
-#include "hello.h"
 
-
-int main(int argc, char* argv[]) {
-    Hello();
+TEST(HelloTest, BasicAssertions) {
+    EXPECT_STRNE("hello", "world");
+    EXPECT_EQ(7*6, 42);
 }
+
+TEST(HelloTest, Test1) {
+    ASSERT_EQ(1, 1);
+}
+

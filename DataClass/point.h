@@ -83,9 +83,3 @@ Point Scale(Point p, int factor) {
 void Foo(Point &x) {
   x = {1,2};
 }
-
-int main(int argc, char const *argv[]) {
-  std::vector<Point> points{{1,2}, {2,3}, {3,4}};
-  std::vector<Point> points2{{1,3}, {2,3}, {3,4}, {2,2}};
-  std::move(points.begin(), points.end(), points2.begin());
-}
