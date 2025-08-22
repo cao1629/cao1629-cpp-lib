@@ -174,6 +174,6 @@ private:
     std::atomic<T> value_;
 };
 
-} // namespace threadsafe
+} // namespace concurrency
 
 #endif // THREAD_SAFE_COUNTER_H
