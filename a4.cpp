@@ -1,5 +1,5 @@
 
-#include "DataClass/employee.h"
+#include "o/employee.h"
 
 
 int main(int argc, char const *argv[]) {

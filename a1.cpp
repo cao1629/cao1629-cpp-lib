@@ -3,21 +3,10 @@
 #include <complex>
 #include <iostream>
 #include <vector>
-#include "DataClass/point.h"
+#include "o/point.h"
 #include <cstring>
-
-
-
+#include <stack>
 
 int main() {
-  Point points[4] = {
-      {1, 2},
-      {3, 4},
-      {5, 6},
-      {7, 8}
-  };
-
-
-
-
+  std::stack<int> s;
 }
