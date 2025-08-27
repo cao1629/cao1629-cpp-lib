@@ -2,11 +2,18 @@
 #include <cassert>
 #include <complex>
 #include <iostream>
-#include <vector>
-#include "o/point.h"
+#include <list>
 #include <cstring>
 #include <stack>
 
+struct Data {
+  void *element;
+};
+
 int main() {
-  std::stack<int> s;
+  std::list<int> l;
+  for (int i = 0; i < 5; i++) {
+    l.push_back(i);
+  }
+
 }

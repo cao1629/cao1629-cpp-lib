@@ -10,7 +10,8 @@ enable_testing()
 add_subdirectory(googletest)
 
 # subdirectories
-add_subdirectory(collections)
+add_subdirectory(ds)
+add_subdirectory(memory)
 
 
 #set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
