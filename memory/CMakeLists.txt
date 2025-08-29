@@ -12,3 +12,5 @@ foreach(test_src ${memory_test})
     target_link_libraries(${test_name} PRIVATE memory_lib GTest::gtest_main)
     gtest_discover_tests(${test_name})
 endforeach()
+
+include_directories(${PROJECT_SOURCE_DIR})

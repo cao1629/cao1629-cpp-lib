@@ -12,6 +12,10 @@ add_subdirectory(googletest)
 # subdirectories
 add_subdirectory(ds)
 add_subdirectory(memory)
+add_subdirectory(stl)
+add_subdirectory(o)
+
+include_directories(${CMAKE_SOURCE_DIR})
 
 
 #set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")

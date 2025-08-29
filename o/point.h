@@ -6,11 +6,10 @@
 #include <tuple>
 #include <list>
 
-
+namespace cao1629 {
 class Point {
 public:
-  // Default Constructor
-  Point() {
+  Point(): x_(0), y_(0) {
     std::cout << "Default Constructor called" << std::endl;
   }
 
@@ -83,3 +82,6 @@ Point Scale(Point p, int factor) {
 void Foo(Point &x) {
   x = {1,2};
 }
+}
+
+

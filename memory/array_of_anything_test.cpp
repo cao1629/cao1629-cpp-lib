@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 
-
 namespace cao1629 {
 
 template <typename T>
@@ -16,7 +15,22 @@ public:
     return size_;
   }
 
-  void Insert(T item);
+  void Insert(T &item) {
+
+  }
+
+  void Remove(int index) {
+
+  }
+
+  auto Find(T &key) -> size_t {
+
+  }
+
+
+  auto GetItem(int index) -> T& {
+    return array_[index];
+  }
 
 private:
   size_t size_;
@@ -24,9 +38,20 @@ private:
 };
 
 template <typename T>
+auto StringOf(T &item) -> std::string {
+  return item.ToString();
+}
+
+// Capacity is a very large number.
+template <typename T>
 ArrayOfAnything<T>* MakeArray(size_t capacity) {
   auto mem = new char[capacity];
   return reinterpret_cast<ArrayOfAnything<T>*>(mem);
+}
+
+
+TEST(ArrayOfAnythingTest, SimpleTest) {
+
 }
 
 }
