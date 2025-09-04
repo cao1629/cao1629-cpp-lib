@@ -24,4 +24,10 @@ TEST(MemoryBasicTest, RefCopyTest) {
   std::pair<Point, Point> pr{r1, r2};
 }
 
+
+TEST(MemoryBasicTest, Test1) {
+  std::vector<Point> points{{1,2}, {3,4}, {5,6}};
+  std::vector<Point> some_other_points();
+}
+
 }
