@@ -3,7 +3,7 @@
 #pragma once
 
 
-namespace cao1629{
+namespace cao1629 {
 
 int Fib(int);
 
