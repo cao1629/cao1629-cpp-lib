@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <algorithm/fib.h>
+#include <vector>
 
 namespace cao1629 {
 
@@ -40,5 +41,11 @@ TEST(FibTest, BasicFibTest) {
   EXPECT_EQ(FibDp(8), 34);
   EXPECT_EQ(FibDp(9), 55);
   EXPECT_EQ(FibDp(10), 89);
+}
+
+
+TEST(FibTest, Test1) {
+  std::vector<int> v = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  std::vector<int> expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 }
 }
