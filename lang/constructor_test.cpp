@@ -5,20 +5,21 @@
 
 namespace cao1629 {
 
-
 class Line {
 
 public:
 
-
 private:
-  Point start_;
-  Point end_;
+  Point p1_;
+  Point p2_;
 };
 
 
 TEST(ConstructorTest, Test1) {
-
+  std::vector<Point> points;
+  Point p{1,2};
+  std::cout <<  "---" << std::endl;
+  points.push_back(p);
 }
 
 }
