@@ -1,51 +1,82 @@
 #include <gtest/gtest.h>
-#include <algorithm/fib.h>
 #include <vector>
 
 namespace cao1629 {
 
-TEST(FibTest, FibRTest) {
-  EXPECT_EQ(FibR(1), 1);
-  EXPECT_EQ(FibR(2), 2);
-  EXPECT_EQ(FibR(3), 3);
-  EXPECT_EQ(FibR(4), 5);
-  EXPECT_EQ(FibR(5), 8);
-  EXPECT_EQ(FibR(6), 13);
-  EXPECT_EQ(FibR(7), 21);
-  EXPECT_EQ(FibR(8), 34);
-  EXPECT_EQ(FibR(9), 55);
-  EXPECT_EQ(FibR(10), 89);
+int fib(int n) {
+  if (n <= 2) {
+    return n;
+  }
+
+  int x = 1;
+  int y = 2;
+  for (int i = 3; i <= n; i++) {
+    int t = x;
+    x = y;
+    y += t;
+  }
+
+  return y;
 }
 
-TEST(FibTest, FibDpTest) {
-  EXPECT_EQ(FibDp(1), 1);
-  EXPECT_EQ(FibDp(2), 2);
-  EXPECT_EQ(FibDp(3), 3);
-  EXPECT_EQ(FibDp(4), 5);
-  EXPECT_EQ(FibDp(5), 8);
-  EXPECT_EQ(FibDp(6), 13);
-  EXPECT_EQ(FibDp(7), 21);
-  EXPECT_EQ(FibDp(8), 34);
-  EXPECT_EQ(FibDp(9), 55);
-  EXPECT_EQ(FibDp(10), 89);
-}
+int fibDp(int n) {
+  if (n <= 2) {
+    return n;
+  }
 
-TEST(FibTest, BasicFibTest) {
-  EXPECT_EQ(Fib(1), 1);
-  EXPECT_EQ(Fib(2), 2);
-  EXPECT_EQ(FibDp(3), 3);
-  EXPECT_EQ(FibDp(4), 5);
-  EXPECT_EQ(FibDp(5), 8);
-  EXPECT_EQ(FibDp(6), 13);
-  EXPECT_EQ(FibDp(7), 21);
-  EXPECT_EQ(FibDp(8), 34);
-  EXPECT_EQ(FibDp(9), 55);
-  EXPECT_EQ(FibDp(10), 89);
+  int dp[n+1];
+  dp[0] = 0;
+  dp[1] = 1;
+  dp[2] = 2;
+
+  for (int i = 3; i <= n; i++) {
+    dp[i] = dp[i-1] + dp[i-2];
+  }
+
+  return dp[n];
 }
 
 
-TEST(FibTest, Test1) {
-  std::vector<int> v = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  std::vector<int> expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int fibRecursive(int n) {
+  if (n <= 2) {
+    return n;
+  }
+
+  return fibRecursive(n - 1) + fibRecursive(n - 2);
 }
+
+TEST(FibTest, TestFib) {
+  EXPECT_EQ(fib(2), 2);
+  EXPECT_EQ(fib(3), 3);
+  EXPECT_EQ(fib(4), 5);
+  EXPECT_EQ(fib(5), 8);
+  EXPECT_EQ(fib(6), 13);
+  EXPECT_EQ(fib(7), 21);
+  EXPECT_EQ(fib(8), 34);
+}
+
+
+TEST(FibTest, TestFibDp) {
+  EXPECT_EQ(fibDp(2), 2);
+  EXPECT_EQ(fibDp(3), 3);
+  EXPECT_EQ(fibDp(4), 5);
+  EXPECT_EQ(fibDp(5), 8);
+  EXPECT_EQ(fibDp(6), 13);
+  EXPECT_EQ(fibDp(7), 21);
+  EXPECT_EQ(fibDp(8), 34);
+}
+
+
+TEST(FibTest, TestFibRecursive) {
+  EXPECT_EQ(fibRecursive(2), 2);
+  EXPECT_EQ(fibRecursive(3), 3);
+  EXPECT_EQ(fibRecursive(4), 5);
+  EXPECT_EQ(fibRecursive(5), 8);
+  EXPECT_EQ(fibRecursive(6), 13);
+  EXPECT_EQ(fibRecursive(7), 21);
+  EXPECT_EQ(fibRecursive(8), 34);
+}
+
+
+
 }
