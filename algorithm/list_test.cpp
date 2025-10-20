@@ -183,5 +183,4 @@ TEST(ListTest, TestReverseKGroup) {
   EXPECT_EQ(ListToVector(reverseKGroup(NewList(v2), 3)), expected2);
 }
 
-
 };

@@ -11,5 +11,4 @@ add_subdirectory(memory)
 add_subdirectory(stl)
 add_subdirectory(googletest)
 add_subdirectory(classes)
-
-
+add_subdirectory(concurrency)
