@@ -3,7 +3,7 @@
 
 namespace cao1629 {
 
-TEST(SortTest, TestSortByCompositeKey) {
+TEST(AlgorithmTest, TestSortByCompositeKey) {
   std::vector<std::vector<int>> v{
     {1,10}, {2, 9}, {2, 8}, {3, 6}
   };
@@ -22,6 +22,13 @@ TEST(SortTest, TestSortByCompositeKey) {
   for (const auto &w : v) {
     std::cout << "{" << w[0] << ", " << w[1] << "}, ";
   }
+}
+
+TEST(AlgorithmTest, TestLowerBound) {
+  std::vector<int> v{1, 2, 3, 4, 5, 5, 6, 7, 8};
+  auto it = std::lower_bound(v.begin(), v.end(), 5);
+  auto idx = std::distance(v.begin(), it);
+  EXPECT_EQ(idx, 4);
 }
 
 }

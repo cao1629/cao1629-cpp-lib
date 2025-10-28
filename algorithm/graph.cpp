@@ -105,12 +105,12 @@ void HasCycleDirected::dfs(int vertex) {
 
   gray_set.insert(vertex);
   for (auto neighbor : graph[vertex]) {
-    if (visited.find(neighbor) != visited.cend()) {
-      if (gray_set.find(neighbor) != gray_set.cend()) {
-        found = true;
-        return;
-      }
-    } else {
+    if (gray_set.find(neighbor) != gray_set.cend()) {
+      found = true;
+      return;
+    }
+
+    if (visited.find(neighbor) == visited.cend()) {
       dfs(neighbor);
     }
   }

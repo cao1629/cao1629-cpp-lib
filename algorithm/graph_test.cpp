@@ -40,6 +40,4 @@ TEST(GraphTest, TestHasCycleDirected) {
   EXPECT_TRUE(cycle_detector.DetectCycle());
 }
 
-
-
 }

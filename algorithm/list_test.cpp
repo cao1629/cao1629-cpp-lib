@@ -32,8 +32,9 @@ ListNode *swapPairs(ListNode *node) {
   return dummy_head->next_;
 }
 
+
 ListNode *swapPairs2(ListNode *node) {
-  ListNode *dummy_head = new ListNode();
+  auto *dummy_head = new ListNode();
   dummy_head->next_ = node;
   ListNode *prev = dummy_head;
   ListNode *p = node;
@@ -87,7 +88,6 @@ ListNode *reverseList(ListNode *head) {
   return prev;
 }
 
-
 ListNode *reverse(ListNode *prev, ListNode *cur) {
 
   if (cur == nullptr) {
@@ -111,12 +111,13 @@ TEST(ListTest, TestReverseList) {
 
 
 // 92. Reverse Linked List II: reverse a range in a linked list
-ListNode *reverseBetween(ListNode *head, int left, int right) {
-  // Advance to "left"
+ListNode *reverseBetween(ListNode *node, int left, int right) {
   ListNode *dummy_head = new ListNode();
-  dummy_head->next_ = head;
+  dummy_head->next_ = node;
+
+  // go to list[left-1]
   ListNode *p = dummy_head;
-  for (int i = 0; i < left-1; i++) {
+  for (int i = 0; i < left; i++) {
     p = p->next_;
   }
 
@@ -124,10 +125,10 @@ ListNode *reverseBetween(ListNode *head, int left, int right) {
   ListNode *cur = p->next_;
 
   for (int i = left; i <= right; i++) {
-    ListNode *next = cur->next_;
+    ListNode *t = cur->next_;
     cur->next_ = prev;
     prev = cur;
-    cur = next;
+    cur = t;
   }
 
   p->next_->next_ = cur;
@@ -139,7 +140,7 @@ ListNode *reverseBetween(ListNode *head, int left, int right) {
 TEST(ListTest, TestReverseBetween) {
   std::vector<int> v{1, 2, 3, 4, 5};
   std::vector<int> expected{1, 4, 3, 2, 5};
-  EXPECT_EQ(ListToVector(reverseBetween(NewList(v), 2, 4)), expected);
+  EXPECT_EQ(ListToVector(reverseBetween(NewList(v), 1, 3)), expected);
 }
 
 // Reverse every k nodes in a linked list.
@@ -172,6 +173,8 @@ ListNode *reverseKGroup(ListNode *head, int k) {
 
   return dummy_head->next_;
 }
+
+
 
 TEST(ListTest, TestReverseKGroup) {
   std::vector<int> v1{1, 2, 3, 4, 5};
