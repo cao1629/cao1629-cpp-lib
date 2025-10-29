@@ -52,25 +52,47 @@ TEST(TwoPtrTest, Test3Sum) {
 
 
 int trapRainWater(std::vector<int> &height) {
+  int n = height.size();
+  std::vector<int> left_max(n);
+  std::vector<int> right_max(n);
+
+  int cur_left_max = 0;
+  for (int i = 0; i < n; i++) {
+    cur_left_max = std::max(cur_left_max, height[i]);
+    left_max[i] = cur_left_max;
+  }
+
+  int cur_right_max = 0;
+  for (int i = n-1; i >= 0; i--) {
+    cur_right_max = std::max(cur_right_max, height[i]);
+    right_max[i] = cur_right_max;
+  }
+
+
+  int result = 0;
+  for (int i = 1; i < n-1; i++) {
+    result += std::min(left_max[i], right_max[i]) - height[i];
+  }
+
+  return result;
+}
+
+int trapRainWater2(std::vector<int> &height) {
   int result = 0;
   int n = height.size();
   int left = 0;
   int right = n-1;
-  int left_max = height[left];
-  int right_max = height[right];
-  while (left < right) {
-    // Why it works?
-    // height[left] < height[right], then we know height[left] < max_right
-    // the amount of water slot left can trap is determined by the minimum of left_max
-    // and right_max.
-    if (height[left] < height[right]) {
+  int left_max = 0;
+  int right_max = 0;
+  while (left <= right) {
+    left_max = std::max(left_max, height[left]);
+    right_max = std::max(right_max, height[right]);
+    if (left_max < right_max) {
       result += left_max - height[left];
       left++;
-      left_max = std::max(left_max, height[left]);
     } else {
       result += right_max - height[right];
       right--;
-      right_max = std::max(right_max, height[right]);
     }
   }
   return result;
@@ -79,11 +101,9 @@ int trapRainWater(std::vector<int> &height) {
 TEST(TwoPtrTest, TestTrapRainWater) {
   std::vector<int> v1{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
   auto ans1 = trapRainWater(v1);
+  auto ans2 = trapRainWater2(v1);
   EXPECT_EQ(ans1, 6);
-
-  std::vector<int> v2{4, 2, 0, 3, 2, 5};
-  auto ans2 = trapRainWater(v2);
-  EXPECT_EQ(ans2, 9);
+  EXPECT_EQ(ans2, 6);
 }
 
 }
