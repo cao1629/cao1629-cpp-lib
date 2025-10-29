@@ -12,4 +12,9 @@ TEST(VectorTest, Test1) {
   }
 }
 
+TEST(VectorTest, Test2) {
+  std::vector<int> v{1,2};
+  std::cout << v[2] << std::endl;
+}
+
 }

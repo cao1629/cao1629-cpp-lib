@@ -43,7 +43,7 @@ std::vector<std::vector<int>> threeSum(std::vector<int> nums) {
 }
 
 
-TEST(TwoPtrTest, Test3Sum) {
+TEST(InwardTwoPointersTest, Test3Sum) {
   std::vector<int> v{-1, 0, 1, 2, -1, -4};
   auto ans = threeSum(v);
   std::vector<std::vector<int>> expected{{-1, -1, 2}, {-1, 0, 1}};
@@ -98,7 +98,7 @@ int trapRainWater2(std::vector<int> &height) {
   return result;
 }
 
-TEST(TwoPtrTest, TestTrapRainWater) {
+TEST(InwardTwoPointersTest, TestTrapRainWater) {
   std::vector<int> v1{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
   auto ans1 = trapRainWater(v1);
   auto ans2 = trapRainWater2(v1);
