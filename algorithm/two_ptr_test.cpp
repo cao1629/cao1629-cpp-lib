@@ -42,6 +42,7 @@ std::vector<std::vector<int>> threeSum(std::vector<int> nums) {
   return ans;
 }
 
+
 TEST(TwoPtrTest, Test3Sum) {
   std::vector<int> v{-1, 0, 1, 2, -1, -4};
   auto ans = threeSum(v);
@@ -49,5 +50,40 @@ TEST(TwoPtrTest, Test3Sum) {
   EXPECT_EQ(ans, expected);
 }
 
+
+int trapRainWater(std::vector<int> &height) {
+  int result = 0;
+  int n = height.size();
+  int left = 0;
+  int right = n-1;
+  int left_max = height[left];
+  int right_max = height[right];
+  while (left < right) {
+    // Why it works?
+    // height[left] < height[right], then we know height[left] < max_right
+    // the amount of water slot left can trap is determined by the minimum of left_max
+    // and right_max.
+    if (height[left] < height[right]) {
+      result += left_max - height[left];
+      left++;
+      left_max = std::max(left_max, height[left]);
+    } else {
+      result += right_max - height[right];
+      right--;
+      right_max = std::max(right_max, height[right]);
+    }
+  }
+  return result;
+}
+
+TEST(TwoPtrTest, TestTrapRainWater) {
+  std::vector<int> v1{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+  auto ans1 = trapRainWater(v1);
+  EXPECT_EQ(ans1, 6);
+
+  std::vector<int> v2{4, 2, 0, 3, 2, 5};
+  auto ans2 = trapRainWater(v2);
+  EXPECT_EQ(ans2, 9);
+}
 
 }
