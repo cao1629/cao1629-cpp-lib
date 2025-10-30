@@ -1,11 +1,11 @@
 #include "graph.h"
 #include <iostream>
 #include <gtest/gtest.h>
-#include <stack>
+#include <queue>
 
 namespace cao1629 {
 static const std::vector<std::pair<int, int>> graph1{
-  {0, 1}, {0, 2}, {0, 5}, {0, 6}, {3, 4}, {3, 5}, {4, 5}
+    {0, 1}, {0, 2}, {0, 5}, {0, 6}, {3, 4}, {3, 5}, {4, 5}
 };
 
 
@@ -106,7 +106,7 @@ public:
 
 TEST(GraphTest, TestHasCycleUndirected) {
   std::vector<std::pair<int, int>> edges_with_cycle{
-    {0, 1}, {1, 2}, {2, 0}
+      {0, 1}, {1, 2}, {2, 0}
   };
   HasCycleUndirected cycle_detector(edges_with_cycle);
   EXPECT_TRUE(cycle_detector.DetectCycle());
@@ -155,7 +155,7 @@ public:
 
 TEST(GraphTest, TestHasCycleDirected) {
   std::vector<std::pair<int, int>> edges_with_cycle{
-    {0, 1}, {1, 2}, {2, 0}
+      {0, 1}, {1, 2}, {2, 0}
   };
   HasCycleDirected cycle_detector(edges_with_cycle);
   EXPECT_TRUE(cycle_detector.DetectCycle());
@@ -167,7 +167,7 @@ public:
   PathFinderUndirectedGraph(std::vector<std::pair<int, int>> edges) {
     graph = CreateUndirectedGraph(edges);
     found = false;
-    // predecessors = std::vector<int>(edges.size(), 0);
+    predecessor = std::vector<int>(edges.size(), -1);
   }
 
   // DFS
@@ -205,6 +205,36 @@ public:
 
   // BFS
   std::vector<int> FindShortestPath(int s, int d) {
+    visited.clear();
+    result.clear();
+    found = false;
+
+    std::queue<int> q;
+    q.push(s);
+    visited.insert(s);
+    while (!q.empty() && !found) {
+      int v = q.front();
+      q.pop();
+      for (int w : graph[v]) {
+        if (visited.find(w) == visited.cend()) {
+          q.push(w);
+          predecessor[w] = v;
+          if (w == d) {
+            found = true;
+          }
+        }
+      }
+    }
+
+    int p = d;
+    while (predecessor[p] != -1) {
+      result.push_back(p);
+      p = predecessor[p];
+    }
+    result.push_back(p);
+
+    std::reverse(result.begin(), result.end());
+    return result;
   }
 
   std::vector<std::vector<int>> graph;
@@ -212,6 +242,7 @@ public:
   bool found;
   std::vector<int> grey;
   std::vector<int> result;
+  std::vector<int> predecessor;
 };
 
 
@@ -222,5 +253,9 @@ TEST(GraphTest, TestFindPathUndirectedGraph) {
   std::vector<int> path2{0, 5, 4};
   bool match = (result == path1 || result == path2);
   EXPECT_TRUE(match);
+
+  std::vector<int> result2 = solver.FindShortestPath(0, 4);
+  EXPECT_EQ(result2, path2);
 }
+
 }
