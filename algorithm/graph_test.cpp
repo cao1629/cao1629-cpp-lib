@@ -258,4 +258,37 @@ TEST(GraphTest, TestFindPathUndirectedGraph) {
   EXPECT_EQ(result2, path2);
 }
 
+// 133. Clone Graph
+// bfs
+struct GraphNode {
+  int val;
+  std::vector<GraphNode*> neighbors;
+  GraphNode(int _val) : val(_val) {}
+};
+
+GraphNode* CloneGraph(GraphNode *node) {
+  std::unordered_map<GraphNode*, GraphNode*> node_map;
+  std::queue<GraphNode*> q;
+  std::unordered_set<GraphNode*> visited;
+
+  visited.insert(node);
+  node_map[node] = new GraphNode(node->val);
+  q.push(node);
+
+  while (!q.empty()) {
+    GraphNode *v = q.front();
+    q.pop();
+    for (auto *w : v->neighbors) {
+      if (visited.find(w) == visited.cend()) {
+        visited.insert(w);
+        node_map[w] = new GraphNode(w->val);
+        q.push(w);
+      }
+      node_map[v]->neighbors.push_back(node_map[w]);
+    }
+  }
+  return node_map[node];
+}
+
+
 }

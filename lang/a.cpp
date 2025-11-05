@@ -1,3 +1,12 @@
-//
-// Created by Colin Cao on 10/12/25.
-//
+
+
+namespace cao1629 {
+
+enum class Direction {
+  Up,
+  Down,
+  Left,
+  Right
+};
+
+}

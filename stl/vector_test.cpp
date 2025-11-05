@@ -26,6 +26,17 @@ TEST(VectorTest, Test3) {
   EXPECT_EQ(v, expected);
 }
 
+// Given the value of an element, remove it from the vector
+TEST(VectorTest, TestRemoveElement) {
+  std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
+  // -1 find and erase
+  auto it = std::find(v.begin(), v.end(), 8);
+  v.erase(it);
+  std::vector<int> expected1{1, 2, 3, 4, 5, 6, 7, 9, 10};
+  EXPECT_EQ(v, expected1);
+
+  // -2
+}
 
 }

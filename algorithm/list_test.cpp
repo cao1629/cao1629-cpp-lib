@@ -186,4 +186,45 @@ TEST(ListTest, TestReverseKGroup) {
   EXPECT_EQ(ListToVector(reverseKGroup(NewList(v2), 3)), expected2);
 }
 
+// 138 Copy Random List
+class CopyRandomList {
+public:
+  struct Node {
+    int val;
+    Node *next;
+    Node *random;
+  };
+
+  // nodes that have been copied are stored in node_map_
+  std::unordered_map<Node*, Node*> node_map_;
+
+  // Return a deep copy of the list that starts from "node"
+  Node *copyRandomList(Node *node) {
+    if (node == nullptr) {
+      return nullptr;
+    }
+
+    if (node_map_.find(node) != node_map_.end()) {
+      return node_map_[node];
+    }
+
+    Node *copy = new Node();
+    // We first insert the copy into the map to avoid infinite recursion.
+    node_map_[node] = copy;
+    copy->val = node->val;
+    copy->next = copyRandomList(node->next);
+    copy->random = copyRandomList(node->random);
+    return node_map_[node];
+  }
+};
+
+// non-recursive version
+// still need a map
+// first round: build a new list with next pointers
+// now all nodes have been copied and stored in the map.
+// second round: set random pointers.
+class CopyRandomList2 {
+
+};
+
 };
