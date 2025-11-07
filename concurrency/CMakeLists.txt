@@ -2,6 +2,7 @@ file(GLOB concurrency_sources "*.cpp")
 file(GLOB concurrency_test_sources "*_test.cpp")
 list(FILTER concurrency_sources EXCLUDE REGEX ".*_test.cpp")
 
+add_library(concurrency_lib ${concurrency_sources})
 target_include_directories(concurrency_lib PUBLIC ${CMAKE_SOURCE_DIR})
 
 include(GoogleTest)
