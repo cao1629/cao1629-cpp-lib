@@ -74,9 +74,4 @@ void LogWriter::AppendRecord(uint8_t op, int k, int v) {
   IntToByteArray(v, buffer);
   out_.write(buffer, 4);
 }
-
-
-
-
-
 }
