@@ -217,8 +217,23 @@ TEST(fstreamTest, TestPut1) {
 
 
 TEST(fstreamTest, Test2) {
-  int i = 100000;
-  int b = 2;
+  char buffer[4] = {1, 0, 0, 0};
+  std::ofstream out("output.log");
+  out.write(buffer, 4);
+}
+
+TEST(fstreamTest, TestPartialRead) {
+  {
+    std::ofstream out("output.txt");
+    out << 1 << 2 << 3 << 4;
+  }
+
+  {
+    std::ifstream in("output.txt");
+    char buffer[10];
+    in.read(buffer, 10);
+    EXPECT_EQ(true, in.eof());
+  }
 }
 
 }

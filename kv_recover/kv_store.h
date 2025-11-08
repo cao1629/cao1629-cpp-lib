@@ -84,11 +84,14 @@ public:
 
   void Remove(int k);
 
-
-
   std::unordered_map<int, int> store_;
 
   LogWriter log_writer;
 };
+
+
+void IntToByteArray(int v, char* buffer);
+
+int ByteArrayToInt(char* buffer);
 
 }

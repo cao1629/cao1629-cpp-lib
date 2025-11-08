@@ -11,13 +11,18 @@ TEST(StringTest, TestSubstr) {
 
 
 TEST(StringTest, TestConcat) {
-  std::string s1 = "AAA";
-  std::string s2 = "BBB";
+  std::string s1 = "Hello";
+  std::string s2 = "world!";
 
-  std::string s3 = s1 + s2;
-  EXPECT_EQ(s3, "AAABBB");
+  std::string s3 = s1 + " " + s2;
+  EXPECT_EQ(s3, "Hello world!");
 }
 
+
+TEST(stringTest, TestAppend) {
+  int i = 1;
+  int j = 2;
+}
 
 TEST(StringTest, TestFind) {
   std::string s1 = "abcdefgabcdefg";

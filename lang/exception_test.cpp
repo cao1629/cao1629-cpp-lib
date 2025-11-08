@@ -7,12 +7,13 @@ namespace cao1629 {
 
 
 TEST(ExceptionTest, Test1) {
-  int a = -1%4;
-  std::set<std::pair<int, int>> s;
-  if (s.find({1,2}) != s.cend()) {
-
+  // 1111 1111 1111 1111
+  // 1111
+  char c = 0xFF;
+  if (c == 0xFF) {
+    std::cout << 1 << std::endl;
   }
-
+  std::cout << static_cast<int>(c) << std::endl;
 }
 
 }

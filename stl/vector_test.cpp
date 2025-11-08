@@ -39,4 +39,11 @@ TEST(VectorTest, TestRemoveElement) {
   // -2
 }
 
+TEST(vectorTest, TestSort) {
+  std::vector<int> v{1, 2, 3, 4, 5};
+  std::sort(v.begin(), v.end(), std::greater<int>());
+  std::vector<int> expected{5, 4, 3, 2, 1};
+  EXPECT_EQ(v, expected);
+}
+
 }
