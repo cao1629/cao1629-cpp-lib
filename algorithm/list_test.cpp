@@ -227,4 +227,54 @@ class CopyRandomList2 {
 
 };
 
+
+// 23. Merge K Lists
+ListNode* MergeKLists(std::vector<ListNode*> lists) {
+  ListNode* dummy_head = new ListNode(0);
+  ListNode* p = dummy_head;
+
+  struct Compare {
+    bool operator()(const ListNode* lhs, const ListNode* rhs) {
+      return lhs->val_ > rhs->val_;
+    }
+  };
+
+  std::priority_queue<ListNode*, std::vector<ListNode*>, Compare> pq;
+
+  for (auto *list : lists) {
+    if (list != nullptr) {
+      pq.push(list);
+    }
+  }
+
+  while (!pq.empty()) {
+    ListNode* t = pq.top();
+    p->next_ = t;
+    p = t;
+
+    pq.pop();
+    if (t->next_ != nullptr) {
+      pq.push(t->next_);
+    }
+  }
+
+  return dummy_head->next_;
+}
+
+
+TEST(ListTest, TestMergeKLists) {
+  std::vector<int> v1{1, 4, 5};
+  std::vector<int> v2{1, 3, 4};
+  std::vector<int> v3{2, 6};
+  ListNode* l1 = NewList(v1);
+  ListNode* l2 = NewList(v2);
+  ListNode *l3 = NewList(v3);
+
+  std::vector<ListNode*> lists{l1, l2, l3};
+  ListNode* merged = MergeKLists(lists);
+  auto result = ListToVector(merged);
+  std::vector<int> expected{1, 1, 2, 3, 4, 4, 5, 6};
+  EXPECT_EQ(result, expected);
+}
+
 };

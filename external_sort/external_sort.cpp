@@ -18,7 +18,6 @@ int Deserialize(const char* buffer) {
   return val;
 }
 
-
 void ExternalSort::CreateNumbersFile(std::string filename, size_t num_numbers) {
   filename_ = std::move(filename);
   std::ofstream out(filename_, std::ios::out | std::ios::app);
