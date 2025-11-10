@@ -2,8 +2,11 @@ file(GLOB concurrency_sources "*.cpp")
 file(GLOB concurrency_test_sources "*_test.cpp")
 list(FILTER concurrency_sources EXCLUDE REGEX ".*_test.cpp")
 
+
+find_package(Threads REQUIRED)
 add_library(concurrency_lib ${concurrency_sources})
 target_include_directories(concurrency_lib PUBLIC ${CMAKE_SOURCE_DIR})
+target_link_libraries(concurrency_lib PUBLIC Threads::Threads)
 
 include(GoogleTest)
 enable_testing()

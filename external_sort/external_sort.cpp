@@ -41,12 +41,22 @@ void ExternalSort::FirstRound() {
   int page_number = 1;
   std::ifstream in(filename_);
   std::vector<int> nums_fit_in_memory;
-  char page[PAGE_SIZE];
 
   int slot = 0;
   for (;;) {
+    char *page = buffer_pool_[slot]->data_;
     // read a page into the slot
     in.read(page, PAGE_SIZE);
+
+    auto read_bytes = in.gcount();
+    // -1 read_bytes == PAGE_SIZE
+    // slot = 9 write out  slot->0
+
+    // -2 0 < read_bytes < PAGE_SIZE
+    // eof   write out and return
+
+    // -3 read_bytes == 0
+    // eof   if slot > 0  write out and return
 
     if (in.eof()) {
       // if slot == 0, we just write out a file. We don't have to create a new file
@@ -126,7 +136,7 @@ void ExternalSort::MergeFiles(int round, int start, int end, int file_number) {
   std::vector<std::shared_ptr<FileReader>> readers;
 
   for (int i = start; i <= end; i++) {
-    std::string input = LogName(round, start);
+    std::string input = LogName(round, i);
     readers.push_back(std::make_shared<FileReader>(input, buffer_pool_[i - start]));
   }
 
@@ -158,6 +168,7 @@ void ExternalSort::MergeFiles(int round, int start, int end, int file_number) {
     auto e = pq.top();
     pq.pop();
     file_writer.WriteInt(e.second);
+
     if (readers[e.first]) {
       int val = readers[e.first]->Next();
 
@@ -171,7 +182,7 @@ void ExternalSort::MergeFiles(int round, int start, int end, int file_number) {
 
   // we're done merging. Files from the previous round are not needed any more.
   for (int i = start; i <= end; i++) {
-    std::string filename = LogName(round, start);
+    std::string filename = LogName(round, i);
     std::filesystem::remove(filename);
   }
 }
@@ -182,13 +193,13 @@ void ExternalSort::MergeCurrentRound(int round) {
   int file_number = 1;
   int start = 1;
   while (start+NUM_PAGES-1 <= num_files) {
-    int end = start+NUM_PAGES-1;
+    int end = start+NUM_PAGES-2;
     MergeFiles(round, start, end, file_number);
     file_number++;
     start = end+1;
   }
 
-  if (start < num_files) {
+  if (start <= num_files) {
     MergeFiles(round, start, num_files, file_number);
     file_number++;
   }
@@ -199,9 +210,9 @@ void ExternalSort::Sort() {
   FirstRound();
   int cur_round = 1;
   do {
-    MergeCurrentRound(1);
+    MergeCurrentRound(cur_round);
     cur_round++;
-  } while (files_[cur_round] == 1);
+  } while (files_[cur_round] != 1);
 }
 
 

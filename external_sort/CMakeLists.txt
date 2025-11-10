@@ -1,6 +1,5 @@
 
 
-
 add_library(external_sort external_sort.cpp)
 
 target_include_directories(external_sort PUBLIC ${CMAKE_SOURCE_DIR})

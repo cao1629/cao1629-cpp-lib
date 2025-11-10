@@ -82,5 +82,11 @@ TEST(ExternalSort, TestFileWriter) {
   std::filesystem::remove("output.data");
 }
 
+TEST(ExternalSortTest, TestSort) {
+  ExternalSort external_sort;
+  external_sort.CreateNumbersFile("source.data", 100000000);
+  external_sort.Sort();
+}
+
 
 }

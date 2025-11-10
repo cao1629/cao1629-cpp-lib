@@ -8,5 +8,3 @@ We need to repeat this process $1000$ times so we will get $1000$ files with sor
 
 Next, we need to merge these files with our $10$ buffer pages. We can merge numbers from multiple sources with 
 a priority queue.
-
-MergeFiles, MergeCurrentRound, Sort methods are not tested.
