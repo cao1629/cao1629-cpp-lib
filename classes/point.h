@@ -51,6 +51,13 @@ public:
 
   std::string ToString() const;
 
+  bool operator==(const Point &other) const {
+    return x_ == other.x_ && y_ == other.y_;
+  }
+
+  int x() const { return x_; }
+  int y() const { return y_; }
+
 private:
   int x_;
   int y_;

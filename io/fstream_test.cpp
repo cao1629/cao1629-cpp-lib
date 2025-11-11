@@ -234,6 +234,7 @@ TEST(fstreamTest, TestPartialRead) {
     in.read(buffer, 10);
     EXPECT_EQ(true, in.eof());
   }
+
 }
 
 }
