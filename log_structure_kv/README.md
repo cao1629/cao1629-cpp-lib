@@ -5,6 +5,6 @@ the key of our data, and value is the offset.
 
 
 For now, we don't support concurrent accesses, so we just need one page in memory for buffering.
-Once this page is full, we write it to a file. We also have a background thread to compact files
+Once this page is full, we flush it to a file. We also have a background thread to compact files
 periodically to remove duplicates and handle deletion marker.
 
