@@ -66,6 +66,7 @@ TEST(CondVarTest, TestBlockingQueue) {
   std::mutex consumed_mutex; // protect consumed_values
 
   // Start consumers
+  consumers.reserve(num_consumers);
   for (int i = 0; i < num_consumers; ++i) {
     consumers.emplace_back([&queue, &consumed_values, &consumed_mutex, items_per_producer, num_producers]() {
       int expected_total = items_per_producer * num_producers / 3;
@@ -78,6 +79,7 @@ TEST(CondVarTest, TestBlockingQueue) {
   }
 
   // Start producers
+  producers.reserve(num_producers);
   for (int i = 0; i < num_producers; ++i) {
     producers.emplace_back([&queue, i, items_per_producer]() {
       for (int j = 0; j < items_per_producer; ++j) {

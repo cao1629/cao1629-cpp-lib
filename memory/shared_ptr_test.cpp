@@ -15,14 +15,13 @@ TEST(SharedPtrTest, TestBasic) {
     std::shared_ptr<Point> p = std::make_shared<Point>(1, 2);
 
     // move the ownership
-    // destructor will be called
     std::shared_ptr<Point> p3 = std::move(p);
   }
 
   {
     std::shared_ptr<Point> p = std::make_shared<Point>(1, 2);
 
-    // reference count decreaes
+    // reference count decreases
     p.reset();
 
     bool empty = false;
@@ -36,5 +35,11 @@ TEST(SharedPtrTest, TestBasic) {
   }
 
 }
+
+// A simple implementation of shared pointers
+class SharedPtr {
+
+};
+
 
 }
