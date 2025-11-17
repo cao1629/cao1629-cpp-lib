@@ -24,6 +24,7 @@ TEST(AlgorithmTest, TestSortByCompositeKey) {
   }
 }
 
+// the first item that is greater than or equal to k
 TEST(AlgorithmTest, TestLowerBound) {
   std::vector<int> v{1, 2, 3, 4, 5, 5, 6, 7, 8};
   auto it = std::lower_bound(v.begin(), v.end(), 5);

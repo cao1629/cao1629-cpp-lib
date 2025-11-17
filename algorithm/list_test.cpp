@@ -277,4 +277,22 @@ TEST(ListTest, TestMergeKLists) {
   EXPECT_EQ(result, expected);
 }
 
+// 141. Linked List Cycle
+bool ListHasCycle(ListNode* head) {
+  ListNode* slow = head;
+  ListNode* fast = head;
+
+  while (fast != nullptr && fast->next_ != nullptr) {
+    fast = fast->next_->next_;
+    slow = slow->next_;
+
+    if (fast == slow) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+
 };

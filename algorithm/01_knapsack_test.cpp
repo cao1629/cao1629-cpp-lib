@@ -35,4 +35,9 @@ TEST(Knapsack01Test, TestTargetSum) {
   EXPECT_EQ(result, 5);
 }
 
+
+// Given an array, does it have a subset whose sum equals to 0?
+// [-1, 1, 4, 5, 8]
+
+
 }

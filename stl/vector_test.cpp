@@ -74,6 +74,26 @@ TEST(vectorTest, TestRemove) {
   v2.erase(it2, v2.end());
   std::vector<int> expected2{1, 3, 5, 7, 9};
   EXPECT_EQ(v2, expected2);
+
+}
+
+
+TEST(vectorTest, TestReserveResize) {
+  std::vector<int> v{1, 2, 3};
+
+  // Make sure capacity is at least 2
+  // If I'm already bigger than 2, do nothing.
+  v.reserve(2);
+
+  std::vector<int> expected{1, 2, 3};
+  EXPECT_EQ(v, expected);
+
+  // Might destroy elements.
+  v.resize(2);
+  std::vector<int> expected1{1, 2};
+  EXPECT_EQ(v, expected1);
+
+
 }
 
 

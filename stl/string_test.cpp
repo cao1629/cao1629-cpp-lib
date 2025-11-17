@@ -24,6 +24,7 @@ TEST(stringTest, TestAppend) {
   int j = 2;
 }
 
+// find a substring
 TEST(StringTest, TestFind) {
   std::string s1 = "abcdefgabcdefg";
   int p = s1.find('c');
@@ -41,5 +42,7 @@ TEST(StringTest, TestFind) {
   EXPECT_EQ(p, 9);
 
 }
+
+
 
 }

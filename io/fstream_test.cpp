@@ -237,4 +237,28 @@ TEST(fstreamTest, TestPartialRead) {
 
 }
 
+// Use getline() to count words
+TEST(fstreamTest, TestGetLine) {
+  {
+    std::ofstream out("output.txt");
+    out << "a b c a b\na e d a e\na b c e a";
+  }
+
+  std::map<std::string, int> word_count;
+  {
+    std::ifstream in("output.txt");
+    std::string line;
+    while (std::getline(in, line)) {
+      std::istringstream line_stream(line);
+      std::string word;
+      while (std::getline(line_stream, word, ' ')) {
+        word_count[word]++;
+      }
+    }
+  }
+
+  std::map<std::string, int> expected{{"a", 6}, {"b", 3}, {"c", 2}, {"d", 1}, {"e", 3}};
+  EXPECT_EQ(word_count, expected);
+}
+
 }

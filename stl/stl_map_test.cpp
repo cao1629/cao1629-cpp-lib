@@ -30,6 +30,7 @@ TEST(MapTest, TestRemove) {
   }
   std::unordered_map<int, int> expected{{1, 2}, {3, 6}, {5, 10}};
   EXPECT_EQ(m, expected);
+
 }
 
 }
