@@ -25,4 +25,28 @@ TEST(WeakPtrTest, Test1) {
   b->prev_ = a;
 }
 
+class Singleton {
+public:
+  static Singleton* GetObject() {
+    if (object == nullptr) {
+      std::unique_lock<std::mutex> lock(mu);
+      if (object == nullptr) {
+        object = new Singleton();
+      }
+    }
+    return object;
+  }
+
+
+private:
+  Singleton() {
+  }
+  static Singleton* object;
+  static std::mutex mu;
+};
+
+
+
+
+
 }

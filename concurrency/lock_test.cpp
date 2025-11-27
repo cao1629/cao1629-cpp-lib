@@ -5,7 +5,6 @@
 #include <condition_variable>
 
 namespace cao1629 {
-
 struct BankAccount {
   explicit BankAccount(int balance) : balance_{balance} {
   }
@@ -104,6 +103,5 @@ TEST(LockTest, TestUniqueLockAdoptLock) {
   // only manage unlocking
   std::unique_lock<std::mutex> lock(mu, std::adopt_lock);
 
-  sched_yield(
 }
 }

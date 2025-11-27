@@ -26,4 +26,8 @@ TEST(VarLenSlidingWindowTest, TestNoRepeatingCharacterSubstr) {
   EXPECT_EQ(lengthOfLongestSubstrNoRepeatingCharacter(s), ans);
 }
 
+
+// 2831. Find the Longest Equal Subarray
+int
+
 }

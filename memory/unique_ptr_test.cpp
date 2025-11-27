@@ -16,7 +16,13 @@ TEST(UniquePtrTest, Test1) {
   // equal to
   // p.reset(p2.release())
   p = std::move(p2);
+
+
 }
 
+
+TEST(UniqueTest, Test2) {
+  std::cout << sizeof(std::shared_ptr<Point>) << std::endl;
+}
 
 }

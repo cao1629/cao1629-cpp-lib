@@ -6,7 +6,9 @@ namespace cao1629 {
 
 class Base {
 public:
-  virtual ~Base() = default;
+  virtual ~Base() {
+    std::cout << "Base destroyed" << std::endl;
+  }
 
   virtual void foo() {
     std::cout << "Base" << std::endl;
@@ -18,6 +20,10 @@ class Derived : public Base {
 public:
   void foo() override {
     std::cout << "Derived" << std::endl;
+  }
+
+  ~Derived() {
+    std::cout << "Derived destroyed" << std::endl;
   }
 };
 
@@ -34,7 +40,15 @@ TEST(oopTest, Test1) {
   Base* b1 = new Base();
   Derived* d1 = dynamic_cast<Derived*>(b1);
   EXPECT_EQ(d1, nullptr);
+}
 
+struct S {
+  void f() const {}
+  void g() {}
+};
+
+TEST(oopTest, Test2) {
+  const S s;
 }
 
 

@@ -22,4 +22,16 @@ TEST(ConstructorTest, Test1) {
   points.push_back(p);
 }
 
+
+TEST(ConstructorTest, Test2) {
+  std::vector<int> v{1,2,3,4};
+  for (auto it = v.begin(); it != v.end(); ) {
+    if (*it % 2 == 0)
+      v.erase(it);   // 使用 erase 的返回值继续遍历（正确）
+    else
+      ++it;               // 不删除时正常前进
+  }
+  int a = 1;
+}
+
 }

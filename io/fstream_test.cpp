@@ -261,4 +261,17 @@ TEST(fstreamTest, TestGetLine) {
   EXPECT_EQ(word_count, expected);
 }
 
+TEST(fstreamTest, Test1) {
+  std::vector<std::vector<int>> v{{1,2},{1, 1}, {2, 2}};
+  std::sort(v.begin(), v.end(), [](const auto& lhs, const auto& rhs) {
+    if (lhs[0] == rhs[0]) {
+      return lhs[1] < rhs[1];
+    }
+
+    return lhs[0] < rhs[0];
+  });
+
+  int a = 1;
+}
+
 }

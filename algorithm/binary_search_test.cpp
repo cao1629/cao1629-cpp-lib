@@ -55,6 +55,32 @@ TEST(BinarySearchTest, TestLowerBound) {
   EXPECT_EQ(LowerBound(v, 0), 0);
 
   EXPECT_EQ(LowerBound(v, 6), v.size());
+
+  std::cout << LowerBound(v, 10) << std::endl;
+}
+
+// 4, 5, 6, 7, 0, 1, 2
+//
+int FindRotationPosition(std::vector<int>& nums) {
+  int left = 0;
+  int right = nums.size()-1;
+
+  while (left < right) {
+    int mid = (left+right)>>1;
+    if (nums[mid] > nums[right]) {
+      left = mid+1;
+    } else {
+      right = mid;
+    }
+  }
+  return left;
+}
+
+// 4, 5, 6, 7, 0, 1, 2
+TEST(BinarySearchTest, TestFindRotationPosition) {
+  std::vector<int> v{4, 5, 6,7, 0, 1, 2};
+  int result = FindRotationPosition(v);
+  EXPECT_EQ(result, 4);
 }
 
 }

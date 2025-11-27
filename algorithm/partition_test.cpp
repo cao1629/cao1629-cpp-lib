@@ -50,4 +50,43 @@ TEST(ParitionTest, TestPartition) {
   EXPECT_EQ(result, expected);
 }
 
+// [1, 2, 3] -> [1][2][3]  [1,2][3]  [1][2,3]   [1][2][3]
+class Partition2 {
+public:
+
+  void run(std::vector<int>& nums) {
+    dfs(nums, 0);
+  }
+
+  // idx: next number I will choose
+  void dfs(std::vector<int>& nums, int idx) {
+    if (idx == nums.size()) {
+      result.push_back(cur);
+      return;
+    }
+    // idx~n
+    for (int i = idx; i <= nums.size()-1; i++) {
+      std::vector<int> v;
+      for (int k = idx; k <= i; k++) {
+        v.push_back(nums[k]);
+      }
+      cur.push_back(v);
+      dfs(nums, i+1);
+      cur.pop_back();
+    }
+  }
+
+  std::vector<std::vector<int>> cur;
+  std::vector<std::vector<std::vector<int>>> result;
+};
+
+TEST(partition_test, test1) {
+  std::vector<int> v{1,2,3};
+  Partition2 o;
+  o.run(v);
+  int a = 1;
+
+  std::unordered_map<int, int> m;
+}
+
 }

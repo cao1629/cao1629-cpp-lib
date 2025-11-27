@@ -30,7 +30,17 @@ TEST(MapTest, TestRemove) {
   }
   std::unordered_map<int, int> expected{{1, 2}, {3, 6}, {5, 10}};
   EXPECT_EQ(m, expected);
-
 }
+
+
+struct PairHash {
+  std::size_t operator()(const std::pair<int, int>& p) {
+    auto h1 = std::hash<int>()(p.first);
+    auto h2 = std::hash<int>()(p.second);
+    return h1^(h2<<1);
+  }
+};
+
+
 
 }
